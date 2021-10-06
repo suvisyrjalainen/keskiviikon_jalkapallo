@@ -8,12 +8,15 @@ public class player : MonoBehaviour
     CharacterController hahmokontrolleri;
     // Start is called before the first frame update
 
+    Animator anim;
+
     private float horisontaalinenPyorinta = 0;
     private float painovoima = 10f;
 
     void Start()
     {
         hahmokontrolleri = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,15 @@ public class player : MonoBehaviour
         //liikkutaan komento
         hahmokontrolleri.Move(nopeus * Time.deltaTime);
 
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            anim.SetBool("Run_F", true);
+        }
+        else
+        {
+            anim.SetBool("Run_F", false);
+        }
 
-    }
+
+        }
 }
