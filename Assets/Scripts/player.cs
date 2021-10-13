@@ -13,6 +13,8 @@ public class player : MonoBehaviour
     private float horisontaalinenPyorinta = 0;
     private float painovoima = 10f;
 
+    private float speed = 5f;
+
     void Start()
     {
         hahmokontrolleri = GetComponent<CharacterController>();
@@ -23,8 +25,8 @@ public class player : MonoBehaviour
     void Update()
     {
         //Eteenpäin ja sivulle liikkuminen
-        float horizontal = Input.GetAxis("Horizontal") * 3;
-        float vertical = Input.GetAxis("Vertical") * 3;
+        float horizontal = Input.GetAxis("Horizontal") * speed;
+        float vertical = Input.GetAxis("Vertical") * speed;
         Vector3 nopeus = new Vector3(horizontal, 0, vertical);
 
         //hiiren x verran pyöriminen
@@ -41,10 +43,17 @@ public class player : MonoBehaviour
         if (Input.GetAxis("Vertical") > 0)
         {
             anim.SetBool("Run_F", true);
+            speed = 8;
+        }
+        else if (Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") != 0)
+        {
+            anim.SetBool("Run_B", true);
+            speed = 4;
         }
         else
         {
             anim.SetBool("Run_F", false);
+            anim.SetBool("Run_B", false);
         }
 
 
