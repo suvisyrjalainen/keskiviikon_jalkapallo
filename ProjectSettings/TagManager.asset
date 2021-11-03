@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ball
+  - GoalNet
+  - maali1
+  - maali2
   layers:
   - Default
   - TransparentFX
