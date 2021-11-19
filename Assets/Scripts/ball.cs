@@ -37,7 +37,7 @@ public class ball : MonoBehaviour
     }
 
 
-        void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         Vector3 aloituspaikka = new Vector3(0, 0, 0);
 
@@ -48,7 +48,8 @@ public class ball : MonoBehaviour
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
 
-            pisteet_1 = "Joukkue 1 Pisteet: " + Joukkue1_pisteet + 1;
+            Joukkue1_pisteet += 1;
+            pisteet_1 = "Joukkue 1 Pisteet: " + Joukkue1_pisteet;
         }
 
         if (other.gameObject.tag == "maali2")
@@ -57,6 +58,9 @@ public class ball : MonoBehaviour
             transform.position = aloituspaikka;
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
+
+            Joukkue2_pisteet += 1;
+            pisteet_2 = "Joukkue 2 Pisteet: " + Joukkue2_pisteet;
         }
 
     }
