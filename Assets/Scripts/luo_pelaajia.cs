@@ -6,7 +6,7 @@ using Photon.Pun;
 public class luo_pelaajia : MonoBehaviour
 {
     public GameObject playerPink;
-    public GameObject playerBlue;
+    public GameObject playerYellow;
 
     public float minX;
     public float maxX;
@@ -29,7 +29,7 @@ public class luo_pelaajia : MonoBehaviour
         }
         else
         {
-            PhotonNetwork.Instantiate(playerBlue.name, spawnPosition, Quaternion.identity);
+            PhotonNetwork.Instantiate(playerYellow.name, spawnPosition, Quaternion.identity);
         }
 
     }
